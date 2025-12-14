@@ -23,7 +23,7 @@ body{
 }
 
 /* Heading */
-h1{
+h2{
   margin-top:16px;
   font-size:clamp(32px,8vw,60px);
   animation:glow 1.5s infinite alternate;
@@ -70,22 +70,6 @@ p{
   100%{transform:translateY(-120vh)}
 }
 
-/* Ribbons */
-.ribbon{
-  position:absolute;
-  top:-120px;
-  width:14px;
-  height:180px;
-  background:linear-gradient(180deg,#ff004f,#ffdd00,#00eaff,#ff69b4);
-  border-radius:50%;
-  animation:ribbonFall 7s linear infinite;
-  filter:drop-shadow(0 0 6px rgba(0,0,0,.3));
-}
-@keyframes ribbonFall{
-  0%{transform:translateY(0) rotate(0)}
-  50%{transform:translateY(60vh) rotate(180deg)}
-  100%{transform:translateY(120vh) rotate(360deg)}
-}
 
 /* Confetti */
 .confetti{
@@ -137,12 +121,6 @@ p{
 <div class="balloon" style="left:70%">🎈</div>
 <div class="balloon" style="left:90%">🎊</div>
 
-<!-- Ribbons -->
-<div class="ribbon" style="left:10%;animation-delay:0s"></div>
-<div class="ribbon" style="left:25%;animation-delay:1s"></div>
-<div class="ribbon" style="left:40%;animation-delay:2s"></div>
-<div class="ribbon" style="left:55%;animation-delay:.5s"></div>
-<div class="ribbon" style="left:70%;animation-delay:1.5s"></div>
 
 <!-- Confetti -->
 <div class="confetti" style="left:20%"></div>
