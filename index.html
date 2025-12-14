@@ -41,7 +41,7 @@ img{
   margin:20px auto;
   animation:pulse 2.5s infinite;
   position:relative;
-  z-index:1; /* 👈 BACK LAYER */
+  z-index:1;
 }
 @keyframes pulse{
   0%{transform:scale(1)}
@@ -72,21 +72,32 @@ p{
   100%{transform:translateY(-120vh)}
 }
 
-/* CONFETTI (IMAGE KE UPAR) */
+/* 🎊 CONFETTI WITH WIND */
 .confetti{
   position:fixed;
   top:-20px;
   z-index:5;
   opacity:0.9;
-  animation:fall linear forwards;
+  animation-name: fall, sway;
+  animation-timing-function: linear, ease-in-out;
+  animation-fill-mode: forwards;
 }
+
 @keyframes fall{
   to{
     transform:translateY(120vh) rotate(720deg);
   }
 }
 
-/* FIREWORK (OLD SIMPLE STYLE) */
+@keyframes sway{
+  0%{margin-left:0}
+  25%{margin-left:-20px}
+  50%{margin-left:20px}
+  75%{margin-left:-15px}
+  100%{margin-left:0}
+}
+
+/* 🎆 FIREWORK */
 .firework{
   position:absolute;
   bottom:0;
@@ -99,17 +110,10 @@ p{
 }
 
 @keyframes explode{
-  0%{
-    transform:scale(1);
-    opacity:1;
-  }
+  0%{transform:scale(1);opacity:1}
   100%{
-    transform:scale(25); /* 👈 NORMAL RADIUS */
-    background:radial-gradient(circle,
-      #fff,
-      gold,
-      red,
-      transparent);
+    transform:scale(25);
+    background:radial-gradient(circle,#fff,gold,red,transparent);
     opacity:0;
   }
 }
@@ -134,53 +138,46 @@ p{
 </audio>
 
 <script>
-// 🎊 RANDOM CONFETTI RAIN (RAIN JAISA EFFECT)
+// 🎊 CONFETTI RAIN WITH WIND
 function createConfetti(){
   const c = document.createElement("div");
   c.className = "confetti";
 
-  // Random horizontal position
-  c.style.left = Math.random() * 100 + "vw";
+  c.style.left = Math.random()*100 + "vw";
 
-  // Random size
-  const size = Math.random() * 8 + 6;
+  const size = Math.random()*8 + 6;
   c.style.width = size + "px";
   c.style.height = size + "px";
 
-  // Random fall speed
-  c.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  const fallTime = Math.random()*3 + 3;
+  const swayTime = Math.random()*2 + 2;
+  c.style.animationDuration = `${fallTime}s, ${swayTime}s`;
 
-  // Random colors
-  const colors = ["#FFD700","#FF69B4","#00E5FF","#7CFF00","#FF5722"];
-  c.style.background = colors[Math.floor(Math.random() * colors.length)];
+  const colors=["#FFD700","#FF69B4","#00E5FF","#7CFF00","#FF5722"];
+  c.style.background = colors[Math.floor(Math.random()*colors.length)];
 
   document.body.appendChild(c);
-
-  // Remove after fall
-  setTimeout(() => {
-    c.remove();
-  }, 7000);
+  setTimeout(()=>c.remove(),8000);
 }
+setInterval(createConfetti,120);
 
-// 👇 IMPORTANT LINE (CONFETTI RAIN STARTS HERE)
-setInterval(createConfetti, 120);
-
-// 🎆 FIREWORKS (BOTH CORNERS)
+// 🎆 FIREWORKS BOTH CORNERS
 function launchFirework(side){
-  const fw = document.createElement("div");
-  fw.className = "firework";
-  fw.style.left = side === "left" ? "5%" : "95%";
-  fw.style.transform = "translateX(-50%)";
+  const fw=document.createElement("div");
+  fw.className="firework";
+  fw.style.left=side==="left"?"5%":"95%";
+  fw.style.transform="translateX(-50%)";
   document.body.appendChild(fw);
-
-  setTimeout(() => fw.remove(), 1500);
+  setTimeout(()=>fw.remove(),1500);
 }
 
-setInterval(() => {
+setInterval(()=>{
   launchFirework("left");
   launchFirework("right");
-}, 2500);
+},2500);
 </script>
+
 </body>
 </html>
+
 
