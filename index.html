@@ -7,118 +7,117 @@
 <title>Happy Birthday Riaz 🎉</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  height: 100vh;
-  background: linear-gradient(135deg, #ff6a88, #ff99ac, #fad0c4);
-  font-family: 'Segoe UI', sans-serif;
-  overflow: hidden;
-  text-align: center;
-  color: white;
+body{
+  height:100vh;
+  background:linear-gradient(135deg,#ff6a88,#ff99ac,#fad0c4);
+  font-family:'Segoe UI',sans-serif;
+  text-align:center;
+  overflow:hidden;
+  color:white;
 }
 
-/* Heading Animation */
-h1 {
-  margin-top: 20px;
-  font-size: clamp(36px, 8vw, 64px);
-  animation: glow 1.5s infinite alternate;
+/* Heading */
+h1{
+  margin-top:16px;
+  font-size:clamp(32px,8vw,60px);
+  animation:glow 1.5s infinite alternate;
 }
-
-@keyframes glow {
-  from { text-shadow: 0 0 10px #fff; }
-  to { text-shadow: 0 0 35px gold; }
+@keyframes glow{
+  from{text-shadow:0 0 10px #fff}
+  to{text-shadow:0 0 35px gold}
 }
 
 /* Image */
-img {
-  width: min(80vw, 360px);
-  height: auto;
-  border-radius: 50%;
-  border: 10px solid white;
-  margin: 25px auto;
-  animation: zoomPulse 2.5s infinite;
+img{
+  width:85vw;
+  max-width:360px;
+  border-radius:35%;
+  border:8px solid white;
+  margin:20px auto;
+  animation:pulse 2.5s infinite;
 }
-
-@keyframes zoomPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.1)}
+  100%{transform:scale(1)}
 }
 
 /* Subtitle */
-p {
-  font-size: clamp(18px, 4.5vw, 26px);
-  margin-bottom: 20px;
-  animation: fadeIn 2s ease-in-out infinite alternate;
+p{
+  font-size:clamp(16px,4.5vw,24px);
+  animation:fadeIn 2s infinite alternate;
 }
-
-@keyframes fadeIn {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
+@keyframes fadeIn{
+  from{opacity:.6}
+  to{opacity:1}
 }
 
 /* Balloons */
-.balloon {
-  position: absolute;
-  bottom: -150px;
-  font-size: 60px;
-  animation: floatUp 8s linear infinite;
+.balloon{
+  position:absolute;
+  bottom:-150px;
+  font-size:56px;
+  animation:floatUp 8s linear infinite;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0)}
+  100%{transform:translateY(-120vh)}
 }
 
-@keyframes floatUp {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-120vh); }
+/* Ribbons */
+.ribbon{
+  position:absolute;
+  top:-120px;
+  width:14px;
+  height:180px;
+  background:linear-gradient(180deg,#ff004f,#ffdd00,#00eaff,#ff69b4);
+  border-radius:50%;
+  animation:ribbonFall 7s linear infinite;
+  filter:drop-shadow(0 0 6px rgba(0,0,0,.3));
 }
-
-.ribbon {
-  position: absolute;
-  top: -120px;
-  width: 16px;
-  height: 200px;
-  border-radius: 50%;
-  background: linear-gradient(
-    180deg,
-    #ff004f,
-    #ffdd00,
-    #00eaff,
-    #ff69b4
-  );
-  animation: ribbonFall 6s linear infinite;
-  transform-origin: top center;
-  filter: drop-shadow(0 0 6px rgba(0,0,0,0.3));
-}
-
-@keyframes ribbonFall {
-  0% {
-    transform: translateY(0) rotate(0deg) skewX(0deg);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(50vh) rotate(180deg) skewX(20deg);
-  }
-  100% {
-    transform: translateY(120vh) rotate(360deg) skewX(-20deg);
-    opacity: 0.8;
-  }
+@keyframes ribbonFall{
+  0%{transform:translateY(0) rotate(0)}
+  50%{transform:translateY(60vh) rotate(180deg)}
+  100%{transform:translateY(120vh) rotate(360deg)}
 }
 
 /* Confetti */
-.confetti {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: yellow;
-  animation: confettiFall 5s linear infinite;
+.confetti{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:yellow;
+  animation:confettiFall 4s linear infinite;
+}
+@keyframes confettiFall{
+  0%{transform:translateY(0) rotate(0)}
+  100%{transform:translateY(120vh) rotate(720deg)}
 }
 
-@keyframes confettiFall {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(120vh) rotate(720deg); }
+/* Fireworks */
+.firework{
+  position:absolute;
+  bottom:0;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:white;
+  animation:shoot 1.3s ease-out forwards;
+}
+@keyframes shoot{
+  0%{transform:translateY(0);opacity:1}
+  80%{transform:translateY(-60vh);opacity:1}
+  100%{
+    transform:translateY(-60vh) scale(25);
+    background:radial-gradient(circle,#fff,gold,red,transparent);
+    opacity:0;
+  }
 }
 </style>
 </head>
@@ -129,7 +128,7 @@ p {
 
 <img src="brother.jpeg" alt="Riaz">
 
-<p>Wishing you Happy Birthday 💖</p>
+<p>Wishing you a very Happy Birthday 💖</p>
 
 <!-- Balloons -->
 <div class="balloon" style="left:10%">🎈</div>
@@ -138,20 +137,35 @@ p {
 <div class="balloon" style="left:70%">🎈</div>
 <div class="balloon" style="left:90%">🎊</div>
 
-<!-- ribbons -->
-<div class="ribbon" style="left:10%; animation-delay:0s;"></div>
-<div class="ribbon" style="left:25%; animation-delay:1s;"></div>
-<div class="ribbon" style="left:40%; animation-delay:2s;"></div>
-<div class="ribbon" style="left:55%; animation-delay:0.5s;"></div>
-<div class="ribbon" style="left:70%; animation-delay:1.5s;"></div>
-<div class="ribbon" style="left:85%; animation-delay:2.5s;"></div>
-
+<!-- Ribbons -->
+<div class="ribbon" style="left:10%;animation-delay:0s"></div>
+<div class="ribbon" style="left:25%;animation-delay:1s"></div>
+<div class="ribbon" style="left:40%;animation-delay:2s"></div>
+<div class="ribbon" style="left:55%;animation-delay:.5s"></div>
+<div class="ribbon" style="left:70%;animation-delay:1.5s"></div>
 
 <!-- Confetti -->
 <div class="confetti" style="left:20%"></div>
 <div class="confetti" style="left:40%"></div>
 <div class="confetti" style="left:60%"></div>
 <div class="confetti" style="left:80%"></div>
+
+<!-- Fireworks Script -->
+<script>
+function launchFirework(side){
+  const fw=document.createElement("div");
+  fw.className="firework";
+  fw.style.left=side==="left"?"5%":"95%";
+  fw.style.transform="translateX(-50%)";
+  document.body.appendChild(fw);
+  setTimeout(()=>fw.remove(),1500);
+}
+
+setInterval(()=>{
+  launchFirework("left");
+  launchFirework("right");
+},3000);
+</script>
 
 </body>
 </html>
