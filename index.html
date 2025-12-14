@@ -75,19 +75,36 @@ p {
   100% { transform: translateY(-120vh); }
 }
 
-/* Ribbons */
 .ribbon {
   position: absolute;
-  top: -50px;
-  width: 12px;
-  height: 120px;
-  background: linear-gradient(red, gold, pink);
-  animation: ribbonFall 4s linear infinite;
+  top: -120px;
+  width: 16px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(
+    180deg,
+    #ff004f,
+    #ffdd00,
+    #00eaff,
+    #ff69b4
+  );
+  animation: ribbonFall 6s linear infinite;
+  transform-origin: top center;
+  filter: drop-shadow(0 0 6px rgba(0,0,0,0.3));
 }
 
 @keyframes ribbonFall {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(120vh) rotate(360deg); }
+  0% {
+    transform: translateY(0) rotate(0deg) skewX(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) skewX(20deg);
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg) skewX(-20deg);
+    opacity: 0.8;
+  }
 }
 
 /* Confetti */
@@ -110,7 +127,7 @@ p {
 
 <h1>🎉 Happy Birthday Riaz 🎂</h1>
 
-<img src="brother.jpg" alt="Riaz">
+<img src="brother.jpeg" alt="Riaz">
 
 <p>Wishing you Happy Birthday 💖</p>
 
@@ -121,11 +138,14 @@ p {
 <div class="balloon" style="left:70%">🎈</div>
 <div class="balloon" style="left:90%">🎊</div>
 
-<!-- Ribbons -->
-<div class="ribbon" style="left:15%"></div>
-<div class="ribbon" style="left:35%"></div>
-<div class="ribbon" style="left:55%"></div>
-<div class="ribbon" style="left:75%"></div>
+<!-- ribbons -->
+<div class="ribbon" style="left:10%; animation-delay:0s;"></div>
+<div class="ribbon" style="left:25%; animation-delay:1s;"></div>
+<div class="ribbon" style="left:40%; animation-delay:2s;"></div>
+<div class="ribbon" style="left:55%; animation-delay:0.5s;"></div>
+<div class="ribbon" style="left:70%; animation-delay:1.5s;"></div>
+<div class="ribbon" style="left:85%; animation-delay:2.5s;"></div>
+
 
 <!-- Confetti -->
 <div class="confetti" style="left:20%"></div>
