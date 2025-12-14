@@ -2,76 +2,136 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday 🎉</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Riaz 🎉</title>
 
 <style>
-body {
-    margin: 0;
-    text-align: center;
-    background: radial-gradient(circle, #ff9a9e, #fad0c4);
-    font-family: 'Segoe UI', sans-serif;
-    overflow: hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #ff6a88, #ff99ac, #fad0c4);
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+}
+
+/* Heading Animation */
 h1 {
-    margin-top: 30px;
-    font-size: 60px;
-    color: white;
-    animation: glow 1.5s infinite alternate;
+  margin-top: 20px;
+  font-size: clamp(36px, 8vw, 64px);
+  animation: glow 1.5s infinite alternate;
 }
 
 @keyframes glow {
-    from { text-shadow: 0 0 10px white; }
-    to { text-shadow: 0 0 30px gold; }
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 35px gold; }
 }
 
+/* Image */
 img {
-    width: 260px;
-    border-radius: 50%;
-    border: 8px solid white;
-    margin-top: 20px;
-    animation: pulse 2s infinite;
+  width: min(80vw, 360px);
+  height: auto;
+  border-radius: 50%;
+  border: 10px solid white;
+  margin: 25px auto;
+  animation: zoomPulse 2.5s infinite;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.07); }
-    100% { transform: scale(1); }
+@keyframes zoomPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
-/* Fireworks */
-.firework {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: gold;
-    border-radius: 50%;
-    animation: explode 1.5s infinite;
+/* Subtitle */
+p {
+  font-size: clamp(18px, 4.5vw, 26px);
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out infinite alternate;
 }
 
-@keyframes explode {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(15); opacity: 0; }
+@keyframes fadeIn {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+/* Balloons */
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  font-size: 60px;
+  animation: floatUp 8s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120vh); }
+}
+
+/* Ribbons */
+.ribbon {
+  position: absolute;
+  top: -50px;
+  width: 12px;
+  height: 120px;
+  background: linear-gradient(red, gold, pink);
+  animation: ribbonFall 4s linear infinite;
+}
+
+@keyframes ribbonFall {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(120vh) rotate(360deg); }
+}
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: yellow;
+  animation: confettiFall 5s linear infinite;
+}
+
+@keyframes confettiFall {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(120vh) rotate(720deg); }
 }
 </style>
 </head>
 
 <body>
 
-<h1>🎂 Happy Birthday Brother 🎉</h1>
+<h1>🎉 Happy Birthday Riaz 🎂</h1>
 
-<img src="brother.jpeg" alt="Brother">
+<img src="brother.jpg" alt="Riaz">
 
-<!-- Background Music 
-<audio autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio> -->
+<p>Wishing you Happy Birthday 💖</p>
 
-<!-- Fireworks -->
-<div class="firework" style="top:40%; left:20%"></div>
-<div class="firework" style="top:60%; left:70%"></div>
-<div class="firework" style="top:30%; left:50%"></div>
-<div class="firework" style="top:70%; left:30%"></div>
+<!-- Balloons -->
+<div class="balloon" style="left:10%">🎈</div>
+<div class="balloon" style="left:30%">🎉</div>
+<div class="balloon" style="left:50%">🎂</div>
+<div class="balloon" style="left:70%">🎈</div>
+<div class="balloon" style="left:90%">🎊</div>
+
+<!-- Ribbons -->
+<div class="ribbon" style="left:15%"></div>
+<div class="ribbon" style="left:35%"></div>
+<div class="ribbon" style="left:55%"></div>
+<div class="ribbon" style="left:75%"></div>
+
+<!-- Confetti -->
+<div class="confetti" style="left:20%"></div>
+<div class="confetti" style="left:40%"></div>
+<div class="confetti" style="left:60%"></div>
+<div class="confetti" style="left:80%"></div>
 
 </body>
 </html>
