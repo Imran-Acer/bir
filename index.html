@@ -134,19 +134,53 @@ p{
 </audio>
 
 <script>
-// 🎊 RANDOM CONFETTI RAIN
+// 🎊 RANDOM CONFETTI RAIN (RAIN JAISA EFFECT)
 function createConfetti(){
-  const c=document.createElement("div");
-  c.className="confetti";
+  const c = document.createElement("div");
+  c.className = "confetti";
 
-  c.style.left=Math.random()*100+"vw";
-  c.style.width=c.style.height=(Math.random()*8+6)+"px";
-  c.style.animationDuration=(Math.random()*3+3)+"s";
+  // Random horizontal position
+  c.style.left = Math.random() * 100 + "vw";
 
-  const colors=["#FFD700","#FF69B4","#00E5FF","#7CFF00","#FF5722"];
-  c.style.background=colors[Math.floor(Math.random()*colors.length)];
+  // Random size
+  const size = Math.random() * 8 + 6;
+  c.style.width = size + "px";
+  c.style.height = size + "px";
+
+  // Random fall speed
+  c.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+  // Random colors
+  const colors = ["#FFD700","#FF69B4","#00E5FF","#7CFF00","#FF5722"];
+  c.style.background = colors[Math.floor(Math.random() * colors.length)];
 
   document.body.appendChild(c);
-  setTimeout(()=>c.remove(),7000);
+
+  // Remove after fall
+  setTimeout(() => {
+    c.remove();
+  }, 7000);
 }
-setInterval(cre
+
+// 👇 IMPORTANT LINE (CONFETTI RAIN STARTS HERE)
+setInterval(createConfetti, 120);
+
+// 🎆 FIREWORKS (BOTH CORNERS)
+function launchFirework(side){
+  const fw = document.createElement("div");
+  fw.className = "firework";
+  fw.style.left = side === "left" ? "5%" : "95%";
+  fw.style.transform = "translateX(-50%)";
+  document.body.appendChild(fw);
+
+  setTimeout(() => fw.remove(), 1500);
+}
+
+setInterval(() => {
+  launchFirework("left");
+  launchFirework("right");
+}, 2500);
+</script>
+</body>
+</html>
+
